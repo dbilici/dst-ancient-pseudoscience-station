@@ -11,6 +11,7 @@ Friends-only Don't Starve Together mod that adds craftable Ancient Pseudoscience
 - Local source package: `ancient_altar_fixed`
 - Mod name: `Craftable Ancient Pseudoscience Station`
 - Author: `k0za1ak`
+- Source repository: https://github.com/dbilici/dst-ancient-pseudoscience-station
 - Repository folder: `dst-ancient-pseudoscience-station`
 - Version: `1.1.0`
 
@@ -43,4 +44,5 @@ Common macOS location:
 
 - Keep generated or OS-local files out of Git (`.DS_Store`, logs, temporary zips).
 - Keep Workshop metadata in this README.
+- Keep the Steam Workshop page text in `STEAM_WORKSHOP.md`.
 - Tag GitHub releases when publishing Workshop updates.
