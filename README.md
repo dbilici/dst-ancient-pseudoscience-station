@@ -5,8 +5,9 @@ Friends-only Don't Starve Together mod that adds craftable Ancient Pseudoscience
 ## Status
 
 - Steam Workshop visibility: Friends Only
-- Workshop ID: TBD
-- Steam title: TBD
+- Workshop ID: `3750960771`
+- Workshop URL: https://steamcommunity.com/sharedfiles/filedetails/?id=3750960771
+- Steam title: `Craftable Ancient Pseudoscience Station`
 - Local source package: `ancient_altar_fixed`
 - Mod name: `Craftable Ancient Pseudoscience Station`
 - Repository folder: `dst-ancient-pseudoscience-station`
@@ -40,5 +41,5 @@ Common macOS location:
 ## Repository Notes
 
 - Keep generated or OS-local files out of Git (`.DS_Store`, logs, temporary zips).
-- Keep Workshop metadata in this README until the repo is connected to GitHub.
+- Keep Workshop metadata in this README.
 - Tag GitHub releases when publishing Workshop updates.
