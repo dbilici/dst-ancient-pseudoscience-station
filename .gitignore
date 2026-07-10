@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+
+*.log
+*.tmp
+*.bak
+
+# Local packaging/export artifacts
+dist/
+build/
+*.zip
+
+# Keep DST asset archives under anim/
+!anim/*.zip
+
