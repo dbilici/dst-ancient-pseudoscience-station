@@ -17,7 +17,7 @@ Features:
 Version: 1.1.0
 Author: k0za1ak
 Workshop ID: 3750960771
+Workshop URL: https://steamcommunity.com/sharedfiles/filedetails/?id=3750960771
 
 Source code:
 https://github.com/dbilici/dst-ancient-pseudoscience-station
-
