@@ -1,8 +1,8 @@
 -- This information tells other players more about the mod
 name = "Craftable Ancient Pseudoscience Station"
 description = "Adds craftable Ancient Pseudoscience Station recipes and configurable Thulecite Fragment crafting."
-author = "Ian_Link"
-version = "1.0"
+author = "k0za1ak"
+version = "1.1.0"
 
 forumthread = ""
 
