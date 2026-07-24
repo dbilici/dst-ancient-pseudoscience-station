@@ -32,7 +32,9 @@ can be balanced—or disabled—without changing the other.
 
 [h2]Credits[/h2]
 
-Based on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=481765222]Ancient Altar[/url] by [b]Ian Link[/b]. Updated for the current DST crafting system with revised configuration, compatibility, and diagnostics.
+Based on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=481765222]Ancient Altar[/url] by [b]Ian Link[/b]. The station prefab code, inventory art, and animation assets bundled with this mod originate from that work.
+
+The original item was last updated in 2015 and is no longer compatible with the current DST crafting system. This modernization is maintained under [url=https://support.klei.com/hc/en-us/articles/360029555992-Modding-Don-t-Starve-and-Don-t-Starve-Together]Klei's abandoned-mod guidance[/url], with revised configuration, compatibility, and diagnostics. If the original author requests removal or different attribution, this item will be updated or removed.
 
 [h2]Configuration and compatibility[/h2]
 
