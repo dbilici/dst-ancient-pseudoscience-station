@@ -1,8 +1,8 @@
 -- This information tells other players more about the mod
 name = "Craftable Ancient Pseudoscience Station"
-description = "Adds craftable Ancient Pseudoscience Station recipes and configurable Thulecite Fragment crafting."
+description = "Craft Ancient Pseudoscience Stations and Thulecite Fragments with separate Easy, Normal, Hard, or Disabled recipes. Includes optional diagnostic logging."
 author = "k0za1ak"
-version = "1.1.0"
+version = "1.1.1"
 
 forumthread = ""
 
@@ -46,5 +46,16 @@ configuration_options =
 		{description = "Hard", data = "hard"},
 	},
 		default = "normal",
+	},
+	{
+		name = "debug_logging",
+		label = "Debug Logging",
+		hover = "Write selected recipe modes and registration diagnostics to client/server logs.",
+		options =
+		{
+			{description = "Disabled", data = false},
+			{description = "Enabled", data = true},
+		},
+		default = false,
 	},
 }

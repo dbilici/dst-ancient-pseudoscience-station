@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - Diagnostics and Workshop copy
+
+- Added optional, disabled-by-default recipe registration logging.
+- Added the `ANCIENT_STATION_DEBUG()` console status command.
+- Documented the exact ingredients and technology required by every difficulty.
+
 ## 1.1.0 - Steam metadata refresh
 
 - Updated the Steam-visible mod name and author metadata.
