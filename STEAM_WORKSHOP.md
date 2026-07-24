@@ -30,6 +30,10 @@ can be balanced—or disabled—without changing the other.
 [*][b]Disabled:[/b] No fragment recipe is added.
 [/list]
 
+[h2]Credits[/h2]
+
+Based on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=481765222]Ancient Altar[/url] by [b]Ian Link[/b]. Updated for the current DST crafting system with revised configuration, compatibility, and diagnostics.
+
 [h2]Configuration and compatibility[/h2]
 
 Both recipe groups default to [b]Normal[/b]. The mod uses DST's modern crafting
