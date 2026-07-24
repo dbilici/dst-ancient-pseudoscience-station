@@ -2,9 +2,35 @@ local Ingredient = GLOBAL.Ingredient
 local RECIPETABS = GLOBAL.RECIPETABS
 local TECH = GLOBAL.TECH
 local STRINGS = GLOBAL.STRINGS
+local tostring = GLOBAL.tostring
 
+local VERSION = "1.1.1"
 local CANCIENTALTAR = GetModConfigData("AncientStation")
 local CTHULECITEFRAGMENTS = GetModConfigData("ThuleciteFragments")
+local DEBUG_ENABLED = GetModConfigData("debug_logging") == true
+
+local function GetRuntimeSide()
+    if GLOBAL.TheNet == nil then
+        return "NO_NET"
+    elseif GLOBAL.TheNet.IsDedicated ~= nil and GLOBAL.TheNet:IsDedicated() then
+        return "DEDICATED_SERVER"
+    elseif GLOBAL.TheNet.GetIsServer ~= nil and GLOBAL.TheNet:GetIsServer() then
+        return "HOST_SERVER"
+    end
+    return "CLIENT"
+end
+
+local function WriteLog(message)
+    if GLOBAL.print ~= nil then
+        GLOBAL.print("[Ancient Station " .. VERSION .. "][" .. GetRuntimeSide() .. "] " .. tostring(message))
+    end
+end
+
+local function DebugLog(message)
+    if DEBUG_ENABLED then
+        WriteLog(message)
+    end
+end
 
 PrefabFiles = {
     "altar",
@@ -49,6 +75,7 @@ RegisterAncientStationDef("altar_broken")
 local function AddCompatRecipe(name, ingredients, tech, config, filters)
     if AddRecipe2 ~= nil then
         AddRecipe2(name, ingredients, tech, config, filters)
+        DebugLog("registered recipe=" .. tostring(name) .. " API=AddRecipe2")
     else
         -- Backwards compatibility for very old builds; current DST should use AddRecipe2.
         AddRecipe(
@@ -64,6 +91,7 @@ local function AddCompatRecipe(name, ingredients, tech, config, filters)
             config ~= nil and config.atlas or nil,
             config ~= nil and config.image or nil
         )
+        DebugLog("registered recipe=" .. tostring(name) .. " API=AddRecipe")
     end
 end
 
@@ -144,3 +172,24 @@ STRINGS.RECIPE_DESC.ALTAR_BROKEN = "Build some of the wonders of a lost age."
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.ALTAR_BROKEN = "It is missing some pieces, but it still hums with power."
 
 STRINGS.RECIPE_DESC.THULECITE_PIECES = "The precious material of the ancients."
+
+GLOBAL.ANCIENT_STATION_DEBUG = function()
+    WriteLog(
+        "status: station_mode=" .. tostring(CANCIENTALTAR)
+        .. ", fragments_mode=" .. tostring(CTHULECITEFRAGMENTS)
+        .. ", debug_logging=" .. tostring(DEBUG_ENABLED)
+    )
+
+    local recipes = GLOBAL.AllRecipes
+    for _, recipe_name in GLOBAL.ipairs({"altar", "altar_broken", "thulecite_pieces"}) do
+        WriteLog(
+            "recipe=" .. recipe_name
+            .. ", registered=" .. tostring(recipes ~= nil and recipes[recipe_name] ~= nil)
+        )
+    end
+end
+
+DebugLog(
+    "loaded: station_mode=" .. tostring(CANCIENTALTAR)
+    .. ", fragments_mode=" .. tostring(CTHULECITEFRAGMENTS)
+)

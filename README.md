@@ -13,7 +13,7 @@ Friends-only Don't Starve Together mod that adds craftable Ancient Pseudoscience
 - Author: `k0za1ak`
 - Source repository: https://github.com/dbilici/dst-ancient-pseudoscience-station
 - Repository folder: `dst-ancient-pseudoscience-station`
-- Version: `1.1.0`
+- Version: `1.1.1`
 
 ## Features
 
@@ -29,6 +29,17 @@ Friends-only Don't Starve Together mod that adds craftable Ancient Pseudoscience
 | --- | --- | --- |
 | Ancient Pseudoscience Station | Disabled, Easy, Normal, Hard | Normal |
 | Thulecite Fragments | Disabled, Easy, Normal, Hard | Normal |
+| Debug Logging | Disabled, Enabled | Disabled |
+
+## Diagnostics
+
+Enable **Debug Logging**, restart the world, and inspect the client/server logs
+for lines beginning with `[Ancient Station 1.1.1]`. The console command below
+always prints a compact configuration and recipe-registration status:
+
+```text
+ANCIENT_STATION_DEBUG()
+```
 
 ## Install Locally
 
