@@ -1,10 +1,10 @@
 # Craftable Ancient Pseudoscience Station
 
-Friends-only Don't Starve Together mod that adds craftable Ancient Pseudoscience Station recipes and configurable Thulecite Fragment crafting.
+Public Don't Starve Together mod that adds craftable Ancient Pseudoscience Station recipes and configurable Thulecite Fragment crafting.
 
 ## Status
 
-- Steam Workshop visibility: Friends Only
+- Steam Workshop visibility: Public
 - Workshop ID: `3750960771`
 - Workshop URL: https://steamcommunity.com/sharedfiles/filedetails/?id=3750960771
 - Steam title: `Craftable Ancient Pseudoscience Station`
