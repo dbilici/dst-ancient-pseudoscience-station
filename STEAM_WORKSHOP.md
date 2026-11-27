@@ -16,8 +16,8 @@ can be balanced—or disabled—without changing the other.
 
 [list]
 [*][b]Easy:[/b] Full Ancient Station — 2 Moon Rock, 1 Purple Gem, 3 Thulecite Fragments; Shadow Manipulator technology.
-[*][b]Normal:[/b] Small Station — 6 Moon Rock, 2 Purple Gems, 6 Thulecite Fragments; Ancient Pseudoscience technology.
-[*][b]Hard:[/b] Small Station — 10 Moon Rock, 4 Purple Gems, 16 Thulecite Fragments; Ancient Pseudoscience technology.
+[*][b]Normal:[/b] Small Station — 6 Moon Rock, 2 Purple Gems, 6 Thulecite Fragments; Shadow Manipulator technology.
+[*][b]Hard:[/b] Small Station — 10 Moon Rock, 4 Purple Gems, 16 Thulecite Fragments; Shadow Manipulator technology.
 [*][b]Disabled:[/b] No station recipe is added.
 [/list]
 
@@ -25,8 +25,8 @@ can be balanced—or disabled—without changing the other.
 
 [list]
 [*][b]Easy:[/b] 1 Gold Nugget + 1 Nightmare Fuel; Shadow Manipulator technology.
-[*][b]Normal:[/b] 1 Electrical Doodad + 1 Nightmare Fuel; Ancient Pseudoscience technology.
-[*][b]Hard:[/b] 2 Electrical Doodads + 2 Nightmare Fuel; Ancient Pseudoscience technology.
+[*][b]Normal:[/b] 1 Electrical Doodad + 1 Nightmare Fuel; Shadow Manipulator technology.
+[*][b]Hard:[/b] 2 Electrical Doodads + 2 Nightmare Fuel; Shadow Manipulator technology.
 [*][b]Disabled:[/b] No fragment recipe is added.
 [/list]
 
@@ -39,14 +39,23 @@ The original item was last updated in 2015 and is no longer compatible with the 
 [h2]Configuration and compatibility[/h2]
 
 Both recipe groups default to [b]Normal[/b]. The mod uses DST's modern crafting
-menu and registers the custom structures as Ancient crafting stations. The
+menu. Newly crafted stations use vanilla prefabs; existing custom stations remain supported. The
 server and every joining player must have the mod enabled.
 
-Optional Debug Logging is off by default. For troubleshooting, enable it and
-run [code]ANCIENT_STATION_DEBUG()[/code] in the console to report the selected
+Debug Mode defaults to Off, with Log only and Chat + log options. Run [code]c_as()[/code] in the console to report the selected
 modes and registered recipes.
 
-Version: 1.1.1
+Version: 1.2.0
 
 Source code and bug reports:
 https://github.com/dbilici/dst-ancient-pseudoscience-station
+
+## Change notes
+
+[h1]1.2.0 — Vanilla Compatibility Update[/h1]
+[list]
+[*]Newly crafted stations use native DST prefabs and vanilla repair, hammer, loot and lighting mechanics.
+[*]Existing custom station prefabs remain available for save compatibility.
+[*]Recipe costs and difficulty settings remain unchanged.
+[*]Improved placement previews and debug modes; use [code]c_as()[/code] for diagnostics.
+[/list]
