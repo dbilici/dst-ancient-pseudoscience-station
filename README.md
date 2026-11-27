@@ -13,8 +13,8 @@ Public Don't Starve Together mod that adds craftable Ancient Pseudoscience Stati
 - Author: `k0za1ak`
 - Source repository: https://github.com/dbilici/dst-ancient-pseudoscience-station
 - Repository folder: `dst-ancient-pseudoscience-station`
-- Published version: `1.1.1`
-- Prepared release: `1.2.0` (Workshop publication pending)
+- Published Workshop version: `1.1.1` (v1.2.0 publication not yet confirmed)
+- GitHub release: [`v1.2.0`](https://github.com/dbilici/dst-ancient-pseudoscience-station/releases/tag/v1.2.0)
 
 ## Features
 
