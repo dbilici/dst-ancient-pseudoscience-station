@@ -2,7 +2,7 @@
 name = "Craftable Ancient Pseudoscience Station"
 description = "Craft Ancient Pseudoscience Stations and Thulecite Fragments with separate Easy, Normal, Hard, or Disabled recipes. Includes optional diagnostic logging."
 author = "k0za1ak"
-version = "1.1.1"
+version = "1.2.0-beta.1"
 
 forumthread = ""
 
@@ -49,13 +49,14 @@ configuration_options =
 	},
 	{
 		name = "debug_logging",
-		label = "Debug Logging",
-		hover = "Write selected recipe modes and registration diagnostics to client/server logs.",
+		label = "Debug Mode",
+		hover = "Recipe diagnostics: c_as() in the remote console.",
 		options =
 		{
-			{description = "Disabled", data = false},
-			{description = "Enabled", data = true},
+			{description = "Off", data = "off"},
+			{description = "Log only", data = "log"},
+			{description = "Chat + log", data = "announce"},
 		},
-		default = false,
+		default = "off",
 	},
 }
