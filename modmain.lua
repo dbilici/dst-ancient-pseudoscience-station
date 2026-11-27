@@ -3,7 +3,7 @@ local TECH = GLOBAL.TECH
 local STRINGS = GLOBAL.STRINGS
 local tostring = GLOBAL.tostring
 
-local VERSION = "1.2.0-beta.1"
+local VERSION = "1.2.0"
 local CANCIENTALTAR = GetModConfigData("AncientStation")
 local CTHULECITEFRAGMENTS = GetModConfigData("ThuleciteFragments")
 local DEBUG_MODE = GetModConfigData("debug_logging")
