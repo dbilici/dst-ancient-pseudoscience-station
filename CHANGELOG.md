@@ -1,13 +1,13 @@
 # Changelog
 
-## 1.2.0-beta.1 - Vanilla station compatibility
+## 1.2.0 - Vanilla station compatibility
 
 - New station recipes produce vanilla prefabs with existing recipe IDs and costs.
 - Keep legacy station prefabs for existing saves; no automatic conversion.
 - Use vanilla station animations for placement previews.
 - Guard legacy random effects against invalid workers and missing health/sanity components.
 - Add short diagnostics and three debug modes, preserving boolean configuration compatibility.
-- In-game validation pending.
+- All 16 recipe configuration regression cases passed; manual in-game checks reported successful. Separate multiplayer validation remains unverified.
 
 ## 1.1.1 - Diagnostics and Workshop copy
 
