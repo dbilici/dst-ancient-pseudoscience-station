@@ -14,7 +14,7 @@ Public Don't Starve Together mod that adds craftable Ancient Pseudoscience Stati
 - Source repository: https://github.com/dbilici/dst-ancient-pseudoscience-station
 - Repository folder: `dst-ancient-pseudoscience-station`
 - Published version: `1.1.1`
-- Development version: `1.2.0-beta.1`
+- Prepared release: `1.2.0` (Workshop publication pending)
 
 ## Features
 
@@ -44,7 +44,7 @@ ANCIENT_STATION_DEBUG()
 
 ## Compatibility testing
 
-Newly crafted stations follow vanilla repair, hammer, loot and lighting behavior. Existing custom stations are not automatically converted. Test new construction, repair, crafting and legacy save/load in a disposable copy before publishing.
+Newly crafted stations follow vanilla repair, hammer, loot and lighting behavior. Existing custom stations are not automatically converted. Manual in-game checks reported successful; separate multiplayer validation remains unverified.
 
 ## Install Locally
 
