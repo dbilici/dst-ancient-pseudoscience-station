@@ -2,6 +2,7 @@ require "prefabutil"
 require "recipe"
 require "modutil"
 
+-- Legacy save compatibility only. New crafting recipes produce vanilla stations.
 local MAXHITS = 10  -- make this an even number
 local EMPTY = ""
 local BROKEN = "_broken"
@@ -127,6 +128,7 @@ local function SpawnAt(inst, prefab)
 end
 
 local function DoRandomThing(inst, pos, count, target)
+    if target == nil or not target:IsValid() or target.components == nil then return end
     count = count or 1
     pos = pos or inst:GetPosition()
 
@@ -164,7 +166,7 @@ local function DoRandomThing(inst, pos, count, target)
             end
         end
 
-        if health ~= 0 then
+        if health ~= 0 and player.components.health ~= nil then
             if player.components.health.currenthealth <= health then
                 --V2C: is this rly?
                 --     it means a health_plus will end up killing you
@@ -174,7 +176,7 @@ local function DoRandomThing(inst, pos, count, target)
             player.components.health:DoDelta(health, false, "altar")
         end
 
-        if sanity ~= 0 then
+        if sanity ~= 0 and player.components.sanity ~= nil then
             player.components.sanity:DoDelta(sanity)
         end
     end
@@ -447,6 +449,6 @@ end
 
 return CreateAltar("altar", true, 2, TUNING.PROTOTYPER_TREES.ANCIENTALTAR_HIGH),
     CreateAltar("altar_broken", false, 1, TUNING.PROTOTYPER_TREES.ANCIENTALTAR_LOW),
-    MakePlacer("altar_placer", "altar", "altar", "idle"),
-    MakePlacer("altar_broken_placer", "altar_broken", "altar_broken", "idle")
+    MakePlacer("altar_placer", "crafting_table", "crafting_table", "idle_full"),
+    MakePlacer("altar_broken_placer", "crafting_table", "crafting_table", "idle_broken")
 
