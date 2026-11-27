@@ -2,7 +2,7 @@
 name = "Craftable Ancient Pseudoscience Station"
 description = "Craft Ancient Pseudoscience Stations and Thulecite Fragments with separate Easy, Normal, Hard, or Disabled recipes. Includes optional diagnostic logging."
 author = "k0za1ak"
-version = "1.2.0-beta.1"
+version = "1.2.0"
 
 forumthread = ""
 
