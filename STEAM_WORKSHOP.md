@@ -39,14 +39,13 @@ The original item was last updated in 2015 and is no longer compatible with the 
 [h2]Configuration and compatibility[/h2]
 
 Both recipe groups default to [b]Normal[/b]. The mod uses DST's modern crafting
-menu and registers the custom structures as Ancient crafting stations. The
+menu. Newly crafted stations use vanilla prefabs; existing custom stations remain supported. The
 server and every joining player must have the mod enabled.
 
-Optional Debug Logging is off by default. For troubleshooting, enable it and
-run [code]ANCIENT_STATION_DEBUG()[/code] in the console to report the selected
+Debug Mode defaults to Off, with Log only and Chat + log options. Run [code]c_as()[/code] in the console to report the selected
 modes and registered recipes.
 
-Version: 1.1.1
+Version: 1.2.0-beta.1 (draft, not published)
 
 Source code and bug reports:
 https://github.com/dbilici/dst-ancient-pseudoscience-station
