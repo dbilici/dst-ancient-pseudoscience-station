@@ -1,13 +1,15 @@
 local Ingredient = GLOBAL.Ingredient
-local RECIPETABS = GLOBAL.RECIPETABS
 local TECH = GLOBAL.TECH
 local STRINGS = GLOBAL.STRINGS
 local tostring = GLOBAL.tostring
 
-local VERSION = "1.1.1"
+local VERSION = "1.2.0-beta.1"
 local CANCIENTALTAR = GetModConfigData("AncientStation")
 local CTHULECITEFRAGMENTS = GetModConfigData("ThuleciteFragments")
-local DEBUG_ENABLED = GetModConfigData("debug_logging") == true
+local DEBUG_MODE = GetModConfigData("debug_logging")
+-- Preserve saved boolean settings from v1.1.1.
+if DEBUG_MODE == true then DEBUG_MODE = "log" end
+if DEBUG_MODE ~= "log" and DEBUG_MODE ~= "announce" then DEBUG_MODE = "off" end
 
 local function GetRuntimeSide()
     if GLOBAL.TheNet == nil then
@@ -20,14 +22,18 @@ local function GetRuntimeSide()
     return "CLIENT"
 end
 
-local function WriteLog(message)
+local function WriteLog(message, player)
     if GLOBAL.print ~= nil then
         GLOBAL.print("[Ancient Station " .. VERSION .. "][" .. GetRuntimeSide() .. "] " .. tostring(message))
+    end
+    if DEBUG_MODE == "announce" and player ~= nil and player.components ~= nil
+        and player.components.talker ~= nil then
+        player.components.talker:Say(message)
     end
 end
 
 local function DebugLog(message)
-    if DEBUG_ENABLED then
+    if DEBUG_MODE ~= "off" then
         WriteLog(message)
     end
 end
@@ -72,27 +78,10 @@ end
 RegisterAncientStationDef("altar")
 RegisterAncientStationDef("altar_broken")
 
+-- Recipe IDs remain stable; only the resulting structure changes.
 local function AddCompatRecipe(name, ingredients, tech, config, filters)
-    if AddRecipe2 ~= nil then
-        AddRecipe2(name, ingredients, tech, config, filters)
-        DebugLog("registered recipe=" .. tostring(name) .. " API=AddRecipe2")
-    else
-        -- Backwards compatibility for very old builds; current DST should use AddRecipe2.
-        AddRecipe(
-            name,
-            ingredients,
-            RECIPETABS.SCIENCE,
-            tech,
-            config ~= nil and config.placer or nil,
-            config ~= nil and config.min_spacing or nil,
-            config ~= nil and config.nounlock or nil,
-            config ~= nil and config.numtogive or nil,
-            config ~= nil and config.builder_tag or nil,
-            config ~= nil and config.atlas or nil,
-            config ~= nil and config.image or nil
-        )
-        DebugLog("registered recipe=" .. tostring(name) .. " API=AddRecipe")
-    end
+    AddRecipe2(name, ingredients, tech, config, filters)
+    DebugLog("registered recipe=" .. tostring(name))
 end
 
 if CANCIENTALTAR ~= "disabled" then
@@ -102,6 +91,7 @@ if CANCIENTALTAR ~= "disabled" then
             {Ingredient("moonrocknugget", 2), Ingredient("purplegem", 1), Ingredient("thulecite_pieces", 3)},
             TECH.MAGIC_TWO,
             {
+                product = "ancient_altar",
                 placer = "altar_placer",
                 atlas = "images/inventoryimages/altar.xml",
                 image = "altar.tex",
@@ -114,6 +104,7 @@ if CANCIENTALTAR ~= "disabled" then
             {Ingredient("moonrocknugget", 6), Ingredient("purplegem", 2), Ingredient("thulecite_pieces", 6)},
             TECH.MAGIC_THREE,
             {
+                product = "ancient_altar_broken",
                 placer = "altar_broken_placer",
                 atlas = "images/inventoryimages/altar_broken.xml",
                 image = "altar_broken.tex",
@@ -126,6 +117,7 @@ if CANCIENTALTAR ~= "disabled" then
             {Ingredient("moonrocknugget", 10), Ingredient("purplegem", 4), Ingredient("thulecite_pieces", 16)},
             TECH.MAGIC_THREE,
             {
+                product = "ancient_altar_broken",
                 placer = "altar_broken_placer",
                 atlas = "images/inventoryimages/altar_broken.xml",
                 image = "altar_broken.tex",
@@ -173,11 +165,12 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.ALTAR_BROKEN = "It is missing some pieces, b
 
 STRINGS.RECIPE_DESC.THULECITE_PIECES = "The precious material of the ancients."
 
-GLOBAL.ANCIENT_STATION_DEBUG = function()
+local function Status()
+    local player = GLOBAL.ConsoleCommandPlayer ~= nil and GLOBAL.ConsoleCommandPlayer() or nil
     WriteLog(
         "status: station_mode=" .. tostring(CANCIENTALTAR)
         .. ", fragments_mode=" .. tostring(CTHULECITEFRAGMENTS)
-        .. ", debug_logging=" .. tostring(DEBUG_ENABLED)
+        .. ", debug_logging=" .. tostring(DEBUG_MODE), player
     )
 
     local recipes = GLOBAL.AllRecipes
@@ -185,9 +178,13 @@ GLOBAL.ANCIENT_STATION_DEBUG = function()
         WriteLog(
             "recipe=" .. recipe_name
             .. ", registered=" .. tostring(recipes ~= nil and recipes[recipe_name] ~= nil)
+            .. ", product=" .. tostring(recipes ~= nil and recipes[recipe_name] ~= nil and recipes[recipe_name].product or "-")
         )
     end
 end
+
+GLOBAL.c_as = Status
+GLOBAL.ANCIENT_STATION_DEBUG = Status
 
 DebugLog(
     "loaded: station_mode=" .. tostring(CANCIENTALTAR)
