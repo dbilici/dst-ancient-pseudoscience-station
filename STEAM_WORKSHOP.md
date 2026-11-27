@@ -16,8 +16,8 @@ can be balanced—or disabled—without changing the other.
 
 [list]
 [*][b]Easy:[/b] Full Ancient Station — 2 Moon Rock, 1 Purple Gem, 3 Thulecite Fragments; Shadow Manipulator technology.
-[*][b]Normal:[/b] Small Station — 6 Moon Rock, 2 Purple Gems, 6 Thulecite Fragments; Ancient Pseudoscience technology.
-[*][b]Hard:[/b] Small Station — 10 Moon Rock, 4 Purple Gems, 16 Thulecite Fragments; Ancient Pseudoscience technology.
+[*][b]Normal:[/b] Small Station — 6 Moon Rock, 2 Purple Gems, 6 Thulecite Fragments; Shadow Manipulator technology.
+[*][b]Hard:[/b] Small Station — 10 Moon Rock, 4 Purple Gems, 16 Thulecite Fragments; Shadow Manipulator technology.
 [*][b]Disabled:[/b] No station recipe is added.
 [/list]
 
@@ -25,8 +25,8 @@ can be balanced—or disabled—without changing the other.
 
 [list]
 [*][b]Easy:[/b] 1 Gold Nugget + 1 Nightmare Fuel; Shadow Manipulator technology.
-[*][b]Normal:[/b] 1 Electrical Doodad + 1 Nightmare Fuel; Ancient Pseudoscience technology.
-[*][b]Hard:[/b] 2 Electrical Doodads + 2 Nightmare Fuel; Ancient Pseudoscience technology.
+[*][b]Normal:[/b] 1 Electrical Doodad + 1 Nightmare Fuel; Shadow Manipulator technology.
+[*][b]Hard:[/b] 2 Electrical Doodads + 2 Nightmare Fuel; Shadow Manipulator technology.
 [*][b]Disabled:[/b] No fragment recipe is added.
 [/list]
 
@@ -45,7 +45,17 @@ server and every joining player must have the mod enabled.
 Debug Mode defaults to Off, with Log only and Chat + log options. Run [code]c_as()[/code] in the console to report the selected
 modes and registered recipes.
 
-Version: 1.2.0-beta.1 (draft, not published)
+Version: 1.2.0
 
 Source code and bug reports:
 https://github.com/dbilici/dst-ancient-pseudoscience-station
+
+## Change notes
+
+[h1]1.2.0 — Vanilla Compatibility Update[/h1]
+[list]
+[*]Newly crafted stations use native DST prefabs and vanilla repair, hammer, loot and lighting mechanics.
+[*]Existing custom station prefabs remain available for save compatibility.
+[*]Recipe costs and difficulty settings remain unchanged.
+[*]Improved placement previews and debug modes; use [code]c_as()[/code] for diagnostics.
+[/list]
