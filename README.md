@@ -13,14 +13,15 @@ Public Don't Starve Together mod that adds craftable Ancient Pseudoscience Stati
 - Author: `k0za1ak`
 - Source repository: https://github.com/dbilici/dst-ancient-pseudoscience-station
 - Repository folder: `dst-ancient-pseudoscience-station`
-- Version: `1.1.1`
+- Published version: `1.1.1`
+- Development version: `1.2.0-beta.1`
 
 ## Features
 
 - Adds recipes for Ancient Pseudoscience Station / Small Station variants.
 - Adds configurable Thulecite Fragment crafting.
 - Supports the modern DST crafting menu through `AddRecipe2`.
-- Registers custom station prefabs with `AddPrototyperDef`.
+- New recipes build vanilla Ancient Stations; legacy custom prefabs remain registered for existing saves.
 - Adds Ancient station tags so station-gated recipes appear near the structure.
 
 ## Configuration
@@ -29,17 +30,21 @@ Public Don't Starve Together mod that adds craftable Ancient Pseudoscience Stati
 | --- | --- | --- |
 | Ancient Pseudoscience Station | Disabled, Easy, Normal, Hard | Normal |
 | Thulecite Fragments | Disabled, Easy, Normal, Hard | Normal |
-| Debug Logging | Disabled, Enabled | Disabled |
+| Debug Mode | Off, Log only, Chat + log | Off |
 
 ## Diagnostics
 
-Enable **Debug Logging**, restart the world, and inspect the client/server logs
-for lines beginning with `[Ancient Station 1.1.1]`. The console command below
-always prints a compact configuration and recipe-registration status:
+Use `c_as()` in the remote console to report recipe IDs and products even when debug mode is off. Log only enables startup diagnostics; Chat + log also shows status on the invoking player. Existing boolean settings remain supported.
+
+Legacy command alias:
 
 ```text
 ANCIENT_STATION_DEBUG()
 ```
+
+## Compatibility testing
+
+Newly crafted stations follow vanilla repair, hammer, loot and lighting behavior. Existing custom stations are not automatically converted. Test new construction, repair, crafting and legacy save/load in a disposable copy before publishing.
 
 ## Install Locally
 
